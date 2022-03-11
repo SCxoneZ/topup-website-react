@@ -1,35 +1,37 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 
-body{
+body {
   margin: 0;
   padding: 0;
   font-family: 'Roboto', Arial, Helvetica, sans-serif;
   background-color: #503A3A;
 }
 
-.wrapper nav{
+
+.wrapper nav {
   width: 100%;
-  height: 50px;
-  background-color: #29292B;
+  height: 45px;
+  background-color: #B1B1B1;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-bottom: 10px;
 }
 
-.wrapper nav img{
+.wrapper nav img,
+.footer-part footer .logo {
   width: 100px;
   height: 30px;
 }
 
-.wrapper .game-cards{
+.wrapper .game-cards {
   width: 100%;
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
 }
 
-.wrapper .game-cards .card{
+.wrapper .game-cards .card {
   width: 80px;
   height: 120px;
   background-color: #29292B;
@@ -43,24 +45,26 @@ body{
   box-sizing: border-box;
 }
 
-.wrapper .game-cards .card img{
+.wrapper .game-cards .card img {
   width: 100%;
   height: 60%;
 }
 
-.wrapper .game-cards .card .game-title{
+.wrapper .game-cards .card .game-title {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 2.5px;
 }
 
-.wrapper .news-ads{
+.wrapper .news {
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
-.wrapper .news-ads .card{
+.wrapper .news .news-card {
   width: 85%;
   height: 180px;
   background-color: #fff;
@@ -70,24 +74,132 @@ body{
   border-radius: 15px;
   overflow: hidden;
   box-sizing: border-box;
+  box-shadow: 0 0 7px rgba(0, 0, 0, .3);
+  margin-top: 15px;
 }
 
-.wrapper .news-ads .card .thumbnail{
+.wrapper .news .news-card .thumbnail {
   width: 100%;
   height: 60%;
 }
 
-.wrapper .news-ads .card content{
+.wrapper .news .news-card content {
   position: relative;
   left: 10px;
   top: 10px;
 }
 
-.wrapper .news-ads .card content .title{
+.wrapper .news .news-card content .title {
   font-size: 20px;
   margin-bottom: 10px;
 }
 
-.wrapper .news-ads .card content description{
+.wrapper .news .news-card content description {
   font-size: 15px;
+}
+
+/* CHOOSING NOMINALS PHASE */
+
+@keyframes addShadow {
+  to {
+    box-shadow: 0 0 0 2.5px rgba(0, 0, 0, .3)
+  }
+}
+
+@keyframes animationButton {
+  to {
+    border-radius: 10px;
+  }
+}
+
+.wrapper {
+  position: relative;
+}
+
+
+.wrapper .input-container {
+  width: 90%;
+  margin: 0 auto;
+  background-color: #8B8B8B;
+  border-radius: 20px;
+  padding: 10px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-weight: bold;
+}
+
+.wrapper .input-container input {
+  border: none;
+  outline: none;
+  width: 200px;
+  height: 25px;
+  border: 1px solid #42445A;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.wrapper .input-container input:focus {
+  animation: addShadow .3s forwards;
+}
+
+.wrapper .back-button {
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  background-color: #4E4E4E;
+  color: #fff;
+  outline: none;
+  border: none;
+  border: .5px solid black;
+  margin: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+}
+
+.wrapper .nominal-container {
+  width: 90%;
+  margin: 0 auto;
+  background-color: #8B8B8B;
+  border-radius: 20px;
+  margin-top: 10px;
+  box-sizing: border-box;
+  padding: 30px 10px 15px 15px;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.wrapper .nominal-container .nominal-card {
+  width: 40%;
+  margin-bottom: 20px;
+  border-radius: 20px;
+  font-size: 15px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 10px;
+  background-color: transparent;
+  border: 1px solid black;
+}
+
+.wrapper .button-buy {
+  width: 100px;
+  height: 50px;
+  border: none;
+  outline: none;
+  background-color: #828CFF;
+  font-weight: bold;
+  color: white;
+  display: block;
+  margin: 10px auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+  border-radius: 5px;
+}
+
+.wrapper .button-buy:hover {
+  animation: animationButton alternate .3s forwards;
 }
