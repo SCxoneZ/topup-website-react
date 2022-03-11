@@ -4,12 +4,12 @@ import available_news from './src/news.js';
 
 function App() {
   
-  const []
+  const [inputValue, setInputValue] = React.useState('');
   
   function RenderGames() {
     const GamesComponent = available_games.map((game) => {
       return (
-        <div key={game.id} className="card" onClick={cardsListener}>
+        <div key={game.id} className="card" onClick={cardsListener.bind(this, game)}>
         <img src={game.thumbnail} alt={game.name} />
         <div className="game-title">
           <p>{game.name}</p>
@@ -35,7 +35,7 @@ function App() {
     return NewsComponent;
   }
   
-  function cardsListener(){
+  function cardsListener(game){
     const el = (
      
      <>
@@ -45,9 +45,18 @@ function App() {
       <div className="container-info">
         Enter User ID
       </div>
-      <input type="number" placeholder="Enter User ID..."/>
+      <input 
+      type="number"
+      placeholder="Enter User ID..."
+      onChange={
+        function(e){
+          setInputValue(e.target.value);
+        }
+      }
+      value={inputValue}/>
     </div>
     <div className="nominal-container">
+      <RenderNominalCards/>
     </div>
     <button type="submit" className="button-buy">BUY NOW!</button>
     </>
@@ -73,14 +82,16 @@ function App() {
   </>
   );
   
-  function NominalCard(){
-    return (
-      
-      <div className="nominal-card">
-        100000 <span className="currency">Diamonds</span>
+  function RenderNominalCards(){
+    const nominals = [5, 10, 100, 250, 700, 1000, 1500, 2500, 5000, 10000];
+    const NominalCards = [];
+    for(let i = 0; i < nominals.length; i++){
+      NominalCards.push(
+      <div key={i} className="nominal-card"> {nominals[i]} <span className="currency">Diamonds</span>
       </div>
-      
-    );
+      );
+    }
+    return NominalCards;
   }
   
   function Navigation() {
