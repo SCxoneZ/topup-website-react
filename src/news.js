@@ -8,8 +8,8 @@ export default
   },
   {
     id: 1,
-    name: 'Facebook',
-    description: 'Share Your Experiences Here!',
+    name: 'Instagram',
+    description: 'Ini ads instagram!',
     thumbnail: 'img/ads-template.jpg'
   }
 ];
