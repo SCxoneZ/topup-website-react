@@ -5,6 +5,7 @@ import available_news from './src/news.js';
 function App() {
 
   const inputEl = React.useRef(null);
+  let nominalButtons;
 
   function RenderGames() {
     const Games = available_games.map((game) => {
@@ -36,28 +37,42 @@ function App() {
   }
 
   async function SubmitListener(game) {
-    const selectedNominal = getSelectedNominal();
-    console.log(selectedNominal);
-    const result = await Swal.fire({
-      title: 'Are you sure?',
-      text: `ID: ${inputEl.current.value}
-      GAME: ${game.name}
-      AMOUNT: ${selectedNominal.value}
-      PRICE: ${parseInt(selectedNominal.textContent.split(' ')[0])*game.price}`,
-      icon: 'info',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'BUY!',
-      cancelButtonText: "CANCEL"
+
+    nominalButtons.forEach(async (el) => {
+      if (el.style.color == 'white') {
+        const result = await Swal.fire({
+          title: 'Are you sure?',
+          html: `
+          <ul>
+            <li>GAME: <b>${game.name}</b></li>
+            <li>ID: <b>${inputEl.current.value}</b></li>
+            <li>AMOUNT: <b>${el.textContent}</b></li>
+            <li>PRICE: <b>Rp. ${parseInt(el.textContent.split(' ')[1])*game.price}</b></li>
+            <li>PAYMENT: <b>GOPAY</b></li>
+          </ul>`,
+          text: 'test\nkakak',
+          icon: 'info',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'BUY!',
+          cancelButtonText: "CANCEL"
+        });
+        if (result.isConfirmed) {
+          Swal.fire({
+            icon: 'success',
+            title: 'INVOICE',
+            html: `
+            <p>You have Bought:</p>
+            <p><b>${el.textContent}</b> for <b>Rp. ${parseInt(el.textContent.split(' ')[1])*game.price}</b></p>`
+          });
+        }
+
+      }
     });
-    if (result.isConfirmed) {
-      Swal.fire({
-        icon: 'success',
-        title: 'INVOICE',
-        text: 'You have bought: blablbla'
-      });
-    }
+
+
+    console.log(inputEl.current.value);
   }
 
   function cardsListener(game) {
@@ -86,14 +101,6 @@ function App() {
 
     ReactDOM.render(el, wrapper);
   }
-  
-  function getSelectedNominal(){
-    return document.querySelectorAll('.nominal-container .nominal-card').forEach((el) => {
-      if(el.style.backgroundColor == 'black'){
-        return el;
-      };
-    });
-  }
 
   return (
 
@@ -118,7 +125,7 @@ function App() {
       NominalCards.push(
         <div key={i} className="nominal-card" onClick={
             function(e){
-              const nominalButtons = document.querySelectorAll('.nominal-container .nominal-card');
+              nominalButtons = document.querySelectorAll('.nominal-container .nominal-card');
               nominalButtons.forEach((btn) => {
                 btn.style.backgroundColor = 'transparent';
                 btn.style.color = 'black';
@@ -139,7 +146,11 @@ function App() {
     return (
 
       <nav>
-        <img src="img/logo.png" alt="#"/>
+        <img src="img/logo.png" alt="#" onClick={
+          function(){
+            ReactDOM.render(<App/>, wrapper);
+          }
+        }/>
       </nav>
 
     );
