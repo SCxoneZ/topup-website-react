@@ -5,6 +5,7 @@ export default
     name: 'Mobile Legends',
     currency: 'Diamonds',
     thumbnail: 'img/games/MobileLegends.jpg',
+    banner: 'img/game-banner/MobileLegends.jpg',
     price: 500
     },
   {
@@ -12,6 +13,7 @@ export default
     name: 'Free Fire',
     currency: 'Diamonds',
     thumbnail: 'img/games/FreeFire.png',
+    banner: 'img/game-banner/FreeFire.jpg',
     price: 250
     },
   {
@@ -19,6 +21,7 @@ export default
     name: 'Free Fire Max',
     currency: 'Diamonds',
     thumbnail: 'img/games/FreeFireMax.png',
+    banner: 'img/game-banner/FreeFire.jpg',
     price: 250
     },
   {
@@ -26,6 +29,7 @@ export default
     name: 'Valorant',
     currency: 'Points',
     thumbnail: 'img/games/Valorant.jpg',
+    banner: 'img/game-banner/Valorant.jpg',
     price: 100.5
     },
   {
@@ -33,6 +37,7 @@ export default
     name: 'Call Of Duty Mobile',
     currency: 'CP',
     thumbnail: 'img/games/CallOfDutyMobile.jpg',
+    banner: 'img/game-banner/CallOfDutyMobile.jpg',
     price: 160.5
     },
   {
@@ -40,6 +45,7 @@ export default
     name: 'Pubg Mobile',
     currency: 'UC',
     thumbnail: 'img/games/PubgMobile.jpg',
+    banner: 'img/game-banner/CallOfDutyMobile.jpg',
     price: 200
     },
   {
@@ -47,6 +53,7 @@ export default
     name: 'Genshin Impsct',
     currency: 'Genesis Crystals',
     thumbnail: 'img/games/GenshinImpact.png',
+    banner: 'img/game-banner/GenshinImpact.png',
     price: 265.25
     },
   {
@@ -54,6 +61,7 @@ export default
     name: 'League Of Legends',
     currency: 'Wild Cores',
     thumbnail: 'img/games/LeagueOfLegends.png',
+    banner: 'img/game-banner/LeagueOfLegends.png',
     price: 8.3
     }
   ];

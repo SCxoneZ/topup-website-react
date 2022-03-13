@@ -16,6 +16,7 @@ body {
   justify-content: center;
   align-items: center;
   position: relative;
+  z-index: 100;
 }
 
 .wrapper nav img,
@@ -160,6 +161,7 @@ body {
   left: 0;
   left: 10px;
   top: 10px;
+  z-index: 101;
 }
 
 .wrapper .nominal-container {
@@ -212,9 +214,10 @@ body {
 
 .wrapper .game-banner{
   width: 100%;
-  height: 125px;
   margin-bottom: 10px;
   filter: brightness(80%);
+  box-shadow: 0 0 10px rgba(0,0,0,.3);
+  position: relative;
 }
 
 ul{

@@ -81,7 +81,7 @@ function App() {
       <>
     <Navigation/>
     <button className="back-button" type="submit" onClick={() => ReactDOM.render(<App/>, wrapper)}>«</button>
-    <img src="img/game-banner/MobileLegends_Banner.jpg" alt="banner" className="game-banner"/>
+    <img src={game.banner} alt="banner" className="game-banner"/>
     <div className="input-container">
       <div className="container-info">
         Enter User ID
